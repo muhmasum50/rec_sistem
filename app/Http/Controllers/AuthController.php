@@ -46,7 +46,8 @@ class AuthController extends Controller
      
             }
             else{
-                $newUser = User::create([
+
+                $data_register = [
                     'username' => $google->id,
                     'password' => Hash::make($google->id),
                     'email' => $google->email,
@@ -55,10 +56,41 @@ class AuthController extends Controller
                     'remember_token' => $google->token,
                     'role' => 'user',
                     'avatar' => $google->avatar    
-                ]);
+                ];
+                $response = User::insert($data_register);
+                if($response == true) {
+                    $pengguna = User::where('email', $google->email)->first();
+
+                    $data = [
+                        'username'  => $pengguna->username,
+                        'password'  => $pengguna->hint,
+                    ];
+                    Auth::attempt($data);
+    
+                    if (Auth::check()) {
+                        session([
+                            'akses_role' => $pengguna->role,
+                            'email' => $pengguna->email,
+                            'auth' => true
+                        ]);
+                        return redirect('home');
+                    }     
+
+                }
+
+                // $newUser = User::create([
+                //     'username' => $google->id,
+                //     'password' => Hash::make($google->id),
+                //     'email' => $google->email,
+                //     'name' => $google->name,
+                //     'hint' => $google->id,
+                //     'remember_token' => $google->token,
+                //     'role' => 'user',
+                //     'avatar' => $google->avatar    
+                // ]);
                 
-                Auth::login($newUser);
-                return redirect('home');
+                // Auth::login($newUser);
+                // return redirect('home');
             }
     
         } catch (Exception $e) {

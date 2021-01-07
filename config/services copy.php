@@ -33,7 +33,7 @@ return [
     'google' => [
         'client_id' => '953293337696-kblv24c9ocn48500egf6d3du0klrs7md.apps.googleusercontent.com',
         'client_secret' => 'BbQ9o8RLZgXiFMFlWpq518lu',
-        'redirect' => 'https://recommender.nggonepixel.com/google/login',
+        'redirect' => 'http://127.0.0.1:8000/google/login',
     ],
 
 ];

@@ -14,7 +14,10 @@ use App\User;
 class AuthController extends Controller
 {
     public function googleLinkLogin() {
-       return Socialite::driver('google')->redirect();
+        if (Auth::check()) { 
+            return redirect('home');
+        }
+        return Socialite::driver('google')->redirect();
     }
 
     public function GoogleLogin() {

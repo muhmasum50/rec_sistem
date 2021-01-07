@@ -230,6 +230,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'DataTables' => Yajra\DataTables\Facades\DataTables::class,
 
     ],
 

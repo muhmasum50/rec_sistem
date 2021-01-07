@@ -26,7 +26,14 @@ Route::post('daftar', 'AuthController@prosesdaftar');
 Route::get('logout', 'AuthController@logout');
 
 // middleware custom
+
+// middleware admin, user
 Route::group(['middleware' => ['CekRole:admin,user']], function () {
     Route::get('/home', 'HomeController@index');
+});
+
+Route::group(['middleware' => ['CekRole:admin']], function(){
+    Route::get('/user', 'UserController@index');
+    Route::get('/load_user','UserController@load_user')->name('load_user');
 });
 

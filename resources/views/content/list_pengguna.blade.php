@@ -3,8 +3,9 @@
 @section('breadcrumb')
     <nav class="page-breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Tables</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Basic Tables</li>
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item" aria-current="page">Pengguna</li>
+            <li class="breadcrumb-item active" aria-current="page">Daftar Pengguna</li>
         </ol>
     </nav>
 @endsection

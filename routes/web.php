@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'AuthController@default');
 
 Route::get('login', 'AuthController@index')->name('login');
-Route::post('login', 'AuthController@login');
+Route::post('login', 'AuthController@login')->name('login');
 
 Route::get('google', 'AuthController@googleLinkLogin');
 Route::get('google/login', 'AuthController@GoogleLogin');

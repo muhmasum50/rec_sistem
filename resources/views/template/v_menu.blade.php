@@ -7,7 +7,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="barang">
                 <i class="link-icon" data-feather="box"></i>
                 <span class="menu-title">Barang</span>
             </a>
@@ -18,13 +18,14 @@
                 <span class="menu-title">Rating Barang</span>
             </a>
         </li>
+        @if(Auth::user()->role == 'admin')
         <li class="nav-item">
             <a class="nav-link" href="{{url('user')}}">
                 <i class="link-icon" data-feather="users"></i>
                 <span class="menu-title">Pengguna</span>
             </a>
         </li>
-        
+        @endif
         <li class="nav-item">
             <a href="#" class="nav-link">
                 <i class="link-icon" data-feather="mail"></i>

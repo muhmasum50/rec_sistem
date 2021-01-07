@@ -8,6 +8,6 @@ use Socialite;
 class HomeController extends Controller
 {
     public function index(){
-       return view('template.v_template');
+       return view('home');
     }
 }

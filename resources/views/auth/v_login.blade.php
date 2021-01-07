@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="{{asset('assets/css/app/style.css')}}">
     <link rel="stylesheet" href="{{asset('assets/vendors/mdi/css/materialdesignicons.min.css')}}">
     <link rel="shortcut icon" href="{{asset('assets/images/favicon.png')}}" />
+
+    <link rel="stylesheet" href="{{asset('assets/vendors/sweetalert2/sweetalert2.min.css')}}">
 </head>
 <body>
 	<div class="main-wrapper">
@@ -31,17 +33,6 @@
                   <div class="auth-form-wrapper px-4 py-5">
                     <a class="noble-ui-logo d-block mb-2">Recommender<span> System</span></a>
                     <h5 class="text-muted font-weight-normal mb-4">Silahkan Login.</h5>
-
-                    @if (Session::has('error'))
-                        <div class="alert alert-primary">
-                            {{ Session::get('error') }}
-                        </div>
-                    @elseif(Session::has('success'))
-                        <div class="alert alert-success">
-                          {{ Session::get('success') }}
-                        </div>
-                    @endif
-
                     <form class="form" action="{{url('login')}}" method="post">
                         @csrf
                       <div class="form-group">
@@ -82,6 +73,45 @@
 
 	<script src="{{asset('assets/vendors/core/core.js')}}"></script>
 	<script src="{{asset('assets/vendors/feather-icons/feather.min.js')}}"></script>
-	<script src="{{asset('assets/js/template.js')}}"></script>
+  <script src="{{asset('assets/js/template.js')}}"></script>
+  <script src="{{asset('assets/vendors/sweetalert2/sweetalert2.min.js')}}"></script>
+  
+  <script>
+      @php 
+        if(Session::has('error')) {
+      @endphp;
+
+      $(function() {
+        const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000
+      });
+      
+      Toast.fire({
+        icon: 'error',
+        title: '{{Session::get("error")}}'
+      })
+
+      })
+
+      @php } else { @endphp
+
+      $(function()) {
+        const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000
+      });
+      
+      Toast.fire({
+        icon: 'success',
+        title: '{{Session::get("success")}}'
+      })
+    })
+      @php } @endphp 
+  </script>
 </body>
 </html>

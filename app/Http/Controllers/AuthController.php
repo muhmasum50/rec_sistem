@@ -40,6 +40,8 @@ class AuthController extends Controller
                         'email' => $user->email,
                         'auth' => true
                     ]);
+                    
+                    Session::flash('login','Selamat, Kamu Berhasil Login');
                     return redirect('home');
          
                 } 
@@ -73,6 +75,8 @@ class AuthController extends Controller
                             'email' => $pengguna->email,
                             'auth' => true
                         ]);
+                        
+                        Session::flash('login','Selamat, Kamu Berhasil Login');
                         return redirect('home');
                     }     
 
@@ -136,6 +140,7 @@ class AuthController extends Controller
                 'email' => $user->email,
                 'auth' => true
             ]);
+            Session::flash('login','Selamat, Kamu Berhasil Login');
             return redirect('home');
  
         } 

@@ -18,6 +18,7 @@
         <link rel="stylesheet" href="{{asset('assets/css/app/style.css')}}">
 
         <link rel="stylesheet" href="https://gibei.stiesia.ac.id/assets/template/bower_components/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{{asset('assets/vendors/sweetalert2/sweetalert2.min.css')}}">
 
         {{-- data tables --}}
         <link rel="stylesheet" href="{{asset('assets/vendors/datatables.net-bs4/dataTables.bootstrap4.css')}}">
@@ -62,6 +63,7 @@
         </div>
 
         <script src="{{asset('assets/vendors/core/core.js')}}"></script>
+        <script src="{{asset('assets/vendors/sweetalert2/sweetalert2.min.js')}}"></script>
 
         <script src="{{asset('assets/vendors/chartjs/Chart.min.js')}}"></script>
         <script src="{{asset('assets/vendors/jquery.flot/jquery.flot.js')}}"></script>

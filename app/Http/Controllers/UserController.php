@@ -10,17 +10,15 @@ class UserController extends Controller
 {
 
     public function load_user() {
-        $user = User::all();
+        $user = User::orderBy('id', 'DESC')->get();
 
         return DataTables::of($user)
         ->addColumn('aksi', function ($user) {
-            $pilih = $user->stock > 0 ? "<button class='btn btn-primary btn-sm' id='select'
+            $pilih = "<button class='btn btn-primary btn-sm' id='select'
                                             data-id = '".$user->id."'
                                             >
                                             <i class='fa fa-check'></i> Pilih
-                                        </button>"
-                    : "<button class='btn btn-default btn-sm' disabled > <i class='fa fa-check'></i> Pilih </button>"
-                ;
+                                        </button>";
             return $pilih;
         })
         ->addColumn('fotoprofil', function($user) {

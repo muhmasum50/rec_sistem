@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use Auth;
 use Closure;
 
 class CekRole
@@ -15,7 +16,12 @@ class CekRole
      */
     public function handle($request, Closure $next,...$roles)
     {
-        if(in_array($request->session()->get('akses_role'), $roles)) {
+        // if(in_array($request->session()->get('akses_role'), $roles)) {
+        //     return $next($request);
+        // }
+        // return redirect('login');
+
+        if(in_array(Auth::user()->role, $roles)) {
             return $next($request);
         }
         return redirect('login');

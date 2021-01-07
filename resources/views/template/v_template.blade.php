@@ -5,6 +5,10 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="keywords" content="Sistem Rekomender">
+        <meta name="author" content="muhammad masum">
+        <meta name="referrer" content="origin" />
+        <meta name="url" content="{{url('')}}" />
         <title>Recommender System</title>
         
         <link rel="stylesheet" href="{{asset('assets/vendors/core/core.css')}}">
@@ -13,9 +17,16 @@
         <link rel="stylesheet" href="{{asset('assets/vendors/flag-icon-css/css/flag-icon.min.css')}}">
         <link rel="stylesheet" href="{{asset('assets/css/app/style.css')}}">
 
+        <link rel="stylesheet" href="https://gibei.stiesia.ac.id/assets/template/bower_components/font-awesome/css/font-awesome.min.css">
+
         {{-- data tables --}}
         <link rel="stylesheet" href="{{asset('assets/vendors/datatables.net-bs4/dataTables.bootstrap4.css')}}">
         <link rel="shortcut icon" href="{{asset('assets/images/favicon.png')}}" />
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+        <script type="text/javascript">
+             var url_puskom = $('meta[name="url"]').attr('content');
+        </script>
     </head>
     <body>
         <div class="main-wrapper">

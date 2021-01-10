@@ -108,18 +108,21 @@
 <script>
     $(document).ready(function() {
         $('#serverside').DataTable({
-            pageLength: 5,
             serverSide: true,
-            ajax: "{{route('load_user')}}",
+            processing: true,
+            ajax: url + '/load_user',
             columns: [
                 {data: 'DT_RowIndex'},
                 {data: 'fotoprofil'},
                 {data: 'name'},
                 {data: 'username'},
                 {data: 'email'},
-                {data: 'role'},
-                {data: 'aksi'}
-            ]
+                {data: 'role', orderable: true, searchable: true},
+                {data: 'aksi', orderable: false, searchable: false}
+            ],
+            language: {
+                processing: '<img style="background-color:transparent" src="https://gibei.stiesia.ac.id/uploads/images/spinner.gif" width="60px;">',
+            }
         });
     });
 

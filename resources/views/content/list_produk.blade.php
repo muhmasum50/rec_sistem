@@ -61,17 +61,20 @@
 <script>
     $(document).ready(function() {
         $('#serverside').DataTable({
-            pageLength: 5,
+            processing: true,
             serverSide: true,
-            ajax: "{{route('load_produk')}}",
+            ajax: url + '/load_produk',
             columns: [
                 {data: 'DT_RowIndex'},
                 {data: 'fotoproduct'},
                 {data: 'product_name'},
                 {data: 'harga'},
                 {data: 'product_desc'},
-                {data: 'aksi'}
-            ]
+                {data: 'aksi', orderable: false, searchable: false}
+            ],
+            language: {
+                processing: '<img style="background-color:transparent" src="https://gibei.stiesia.ac.id/uploads/images/spinner.gif" width="60px;">',
+            }
         });
     });
 </script>

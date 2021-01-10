@@ -15,38 +15,44 @@ use DataTables;
 
 class ProductController extends Controller
 {
-    public function load_product() {
-        $product = Product::select('product_name','id','price','product_desc','product_pic')
+    public function load_product(Request $request) {
+        if($request->ajax()) {
+            $product = Product::select('product_name','id','price','product_desc','product_pic')
                 ->orderBy('id', 'DESC')->get();
 
-        return DataTables::of($product)
-        ->addColumn('aksi', function ($product) {
-            $pilih = "<button data-toggle='modal' id='tombol_edit' data-target='#modal-edit' 
-                            class='btn btn btn-outline-primary btn-xs'
-                            data-id = '".$product->id."'
-                            >
-                        <i class='fa fa-pencil'></i>
-                    </button>
-                    <button class='btn btn-outline-warning btn-xs'
-                        data-toggle='modal' id='tombol_hapus' data-id = '".$product->id."' 
-                        data-target='#modal-hapus'>
-                        <i class='fa fa-trash'></i>
-                    </button>";
-            return $pilih;
-        })
-        ->addColumn('harga', function($product) {
-            $price = 'Rp. '.number_format($product->price, 2);
-            return $price;
-        })
-        ->addColumn('fotoproduct', function($product) {
-            $pic = $product->product_pic != null ? '<img src="'.asset("uploads/products").'/'.$product->product_pic.'" width="100px;">' : 
-                    '<img src="https://ui-avatars.com/api/?name='.$product->product_pic.'&color=727cf5&background=EBF4FF" alt="">' ;
-        
-            return $pic;
-        })
-        ->addIndexColumn()
-        ->rawColumns(['aksi','fotoproduct'])
-        ->make(true);
+            return DataTables::of($product)
+            ->addColumn('aksi', function ($product) {
+                $pilih = "<button data-toggle='modal' id='tombol_edit' data-target='#modal-edit' 
+                                class='btn btn btn-outline-primary btn-xs'
+                                data-id = '".$product->id."'
+                                >
+                            <i class='fa fa-pencil'></i>
+                        </button>
+                        <button class='btn btn-outline-warning btn-xs'
+                            data-toggle='modal' id='tombol_hapus' data-id = '".$product->id."' 
+                            data-target='#modal-hapus'>
+                            <i class='fa fa-trash'></i>
+                        </button>";
+                return $pilih;
+            })
+            ->addColumn('harga', function($product) {
+                $price = 'Rp. '.number_format($product->price, 2);
+                return $price;
+            })
+            ->addColumn('fotoproduct', function($product) {
+                $pic = $product->product_pic != null ? '<img src="'.asset("uploads/products").'/'.$product->product_pic.'" width="100px;">' : 
+                        '<img src="https://ui-avatars.com/api/?name='.$product->product_pic.'&color=727cf5&background=EBF4FF" alt="">' ;
+            
+                return $pic;
+            })
+            ->addIndexColumn()
+            ->rawColumns(['aksi','fotoproduct'])
+            ->make(true);
+
+        }
+        else {
+            abort(404);
+        }
     }
 
     public function index() {

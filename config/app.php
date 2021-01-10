@@ -176,6 +176,9 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Laravel\Socialite\SocialiteServiceProvider::class,
+        Jenssegers\Agent\AgentServiceProvider::class,
+        // helpers
+        App\Providers\YinServiceProvider::class,
 
     ],
 
@@ -231,6 +234,8 @@ return [
 
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
+        'Agent' => Jenssegers\Agent\Facades\Agent::class,
+        'Yin' => App\Helpers\Yin::class,
 
     ],
 

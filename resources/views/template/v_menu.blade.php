@@ -7,9 +7,9 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="barang">
+            <a class="nav-link" href="{{url('produk')}}">
                 <i class="link-icon" data-feather="box"></i>
-                <span class="menu-title">Barang</span>
+                <span class="menu-title">Produk</span>
             </a>
         </li>
         <li class="nav-item">

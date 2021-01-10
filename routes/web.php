@@ -29,5 +29,9 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/load_user','UserController@load_user')->name('load_user');
         Route::put('/user', 'UserController@update');
         Route::delete('/user', 'UserController@destroy');
+        Route::get('/produk', 'ProductController@index');
+        Route::get('/produk/add', 'ProductController@create');
+        Route::post('/produk/add', 'ProductController@store');
+        Route::get('/load_produk', 'ProductController@load_product')->name('load_produk');
     });
 });

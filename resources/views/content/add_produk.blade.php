@@ -37,12 +37,6 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label>Foto Produk</label>
-                                <input type="file" name="fotoproduk" class="form-control @error('fotoproduk') is-invalid @enderror">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
                                 <label>Harga</label>
                                 <input type="number" name="harga" class="form-control @error('harga') is-invalid @enderror">
                                 @error('harga')
@@ -50,8 +44,17 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label>Deskrpsi Produk</label>
-                                <textarea name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror" id="" cols="30" rows="10"></textarea>
+                                <label>Foto Produk</label>
+                                <input type="file" name="fotoproduk" class="form-control @error('fotoproduk') is-invalid @enderror">
+                                @error('fotoproduk')
+                                    <span class="help-block" style="color:#dc3545">{{$message}}</span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Deskripsi Produk</label>
+                                <textarea name="deskripsi" id="tinymceExample" class="form-control @error('deskripsi') is-invalid @enderror"></textarea>
                                 @error('deskripsi')
                                     <span class="help-block" style="color:#dc3545">{{$message}}</span>
                                 @enderror

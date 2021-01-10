@@ -44,6 +44,7 @@
                                 <th>Nama Produk</th>
                                 <th>Harga</th>
                                 <th>Deskripsi</th>
+                                <th>Dibuat</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -53,6 +54,28 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-hapus" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <form action="{{url('/produk')}}" method="post">
+            @csrf
+            @method('delete')
+            <input type="hidden" name="id" id="iduser">
+            <div class="modal-header">
+            <h5 class="modal-title">Apakah anda yakin akan menghapus data ini?</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary"><i class="fa fa-trash"></i> Hapus</button>
+            </div>
+        </form>
+    </div>
     </div>
 </div>
 @endsection
@@ -70,6 +93,7 @@
                 {data: 'product_name'},
                 {data: 'harga'},
                 {data: 'product_desc'},
+                {data: 't_userupdate'},
                 {data: 'aksi', orderable: false, searchable: false}
             ],
             language: {
@@ -77,5 +101,9 @@
             }
         });
     });
+    $(document).on('click', '#tombol_hapus', function(){
+        var id = $(this).data('id')
+        $('#iduser').val(id);
+    })
 </script>
 @endpush

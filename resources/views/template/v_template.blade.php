@@ -81,6 +81,10 @@
         <script src="{{asset('assets/vendors/datatables.net/jquery.dataTables.js')}}"></script>
         <script src="{{asset('assets/vendors/datatables.net-bs4/dataTables.bootstrap4.js')}}"></script>
         <script src="{{asset('assets/js/data-table.js')}}"></script>
+
+        {{-- tiny mce --}}
+        <script src="{{asset('assets/vendors/tinymce/tinymce.min.js')}}"></script>
+        <script src="{{asset('assets/js/tinymce.js')}}"></script>
         @stack('script')
     
     </body>

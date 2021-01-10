@@ -17,7 +17,7 @@ class ProductController extends Controller
 {
     public function load_product(Request $request) {
         if($request->ajax()) {
-            $product = Product::select('product_name','id','price','product_desc','product_pic')
+            $product = Product::select('product_name','id','price','product_desc','product_pic', 't_userupdate')
                 ->orderBy('id', 'DESC')->get();
 
             return DataTables::of($product)
@@ -77,7 +77,7 @@ class ProductController extends Controller
         $messages = [
             'namaproduk.required'  => 'Username wajib diisi',
             'harga.required' => 'Password wajib diisi',
-            'deskripsi.required'  => 'Email wajib diisi',
+            'deskripsi.required'  => 'Deskripsi wajib diisi',
             'fotoproduk.required' => 'Foto Produk tidak boleh kosong'
         ];
  
@@ -115,6 +115,44 @@ class ProductController extends Controller
         }
         else {
             return redirect('produk')->with('error', 'Penambahan data Produk gagal');
+        }
+    }
+
+    public function destroy(Request $request) {
+        $id = $request->id;
+        $data = Product::where('id', $id)->first();
+
+        try {
+            // jika ada file gambar yang terkait
+            if(File::exists(public_path('uploads/products/'.$data->product_pic))){
+
+                File::delete(public_path('uploads/products/'.$data->product_pic));
+                $res = Product::where('id', $id)->delete();
+                if($res == true){
+                    return redirect('produk')->with('success', 'Penghapusan data Produk berhasil');
+                }
+                else {
+                    return redirect('produk')->with('error', 'Penghapusan data Produk Gagal');
+                }
+            
+            }
+            // jika tidak ada file gambar
+            else {
+                $res = Product::where('id', $id)->delete();
+    
+                if($res == true){
+                    return redirect('produk')->with('success', 'Penghapusan data Produk berhasil');
+                }
+                else {
+                    return redirect('produk')->with('error', 'Penghapusan data Produk Gagal');
+                }
+            }
+
+        } 
+        catch (Exception $e){
+            if($e->getCode() == "23000"){
+                return redirect('produk')->with('error', 'Data Produk gagal dihapus, karena masih berelasi!');
+            }
         }
     }
 }

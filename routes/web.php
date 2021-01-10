@@ -33,5 +33,6 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/produk/add', 'ProductController@create');
         Route::post('/produk/add', 'ProductController@store');
         Route::get('/load_produk', 'ProductController@load_product')->name('load_produk');
+        Route::delete('/produk','ProductController@destroy');
     });
 });

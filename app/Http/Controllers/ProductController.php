@@ -51,7 +51,6 @@ class ProductController extends Controller
 
     public function index() {
         return view('content.list_produk');
-        // dd(\base_path());
     }
 
     public function create() {
@@ -85,15 +84,14 @@ class ProductController extends Controller
         if ($request->file('fotoproduk') != null) {
             $image = $request->file('fotoproduk');
             $image_name = 'TrioKDL-'.time().'.'.$image->getClientOriginalExtension();
-            // $destinationPath = public_path('\uploads\products');
-            // $destinationPath = \base_path() ."/public/uploads/products";
-            // $resorce->move(\base_path() ."/public/images", $name);
-            // $image->move($destinationPath, $image_name);
             $image->move(\base_path() ."/public/uploads/products", $image_name);
         }
         else {
             $image_name = null;
         }
+
+        date_default_timezone_set("Asia/Bangkok");
+        $date = date('Y-m-d H:i:s');
 
         $data = [
             'product_name' => $request->namaproduk,
@@ -102,6 +100,7 @@ class ProductController extends Controller
             'product_pic' => $image_name,
             't_userupdate' => Auth::user()->name,
             't_ipaddress' => request()->ip(),
+            'created_at' => $date
         ];
 
         $res = Product::insert($data);

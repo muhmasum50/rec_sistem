@@ -54,7 +54,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Deskripsi Produk</label>
-                                <textarea name="deskripsi" id="tinymceExample" class="form-control @error('deskripsi') is-invalid @enderror"></textarea>
+                                <textarea name="deskripsi" id="mytinymce" class="form-control @error('deskripsi') is-invalid @enderror"></textarea>
                                 @error('deskripsi')
                                     <span class="help-block" style="color:#dc3545">{{$message}}</span>
                                 @enderror
@@ -67,3 +67,20 @@
     </div>
 </div>
 @endsection
+
+@push('script')
+    <script>
+        $(function() {
+        'use strict';
+
+        /*simplemde editor*/
+        if ($("#mymde").length) {
+            var simplemde = new SimpleMDE({
+            element: $("#mymde")[0],
+            heigth: 300
+            });
+        }
+
+        });
+    </script>
+@endpush

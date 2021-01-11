@@ -9,6 +9,7 @@
         <meta name="author" content="muhammad masum">
         <meta name="referrer" content="origin" />
         <meta name="url" content="{{url('')}}" />
+        <meta name="_token" content="{{csrf_token()}}" />
         <title>Recommender System</title>
         
         <link rel="stylesheet" href="{{asset('assets/vendors/core/core.css')}}">
@@ -18,12 +19,18 @@
         <link rel="stylesheet" href="{{asset('assets/css/app/style.css')}}">
 
         <link rel="stylesheet" href="https://gibei.stiesia.ac.id/assets/template/bower_components/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://gibei.stiesia.ac.id/assets/template/bower_components/Ionicons/css/ionicons.min.css">
         <link rel="stylesheet" href="{{asset('assets/vendors/sweetalert2/sweetalert2.min.css')}}">
 
         {{-- data tables --}}
         <link rel="stylesheet" href="{{asset('assets/vendors/datatables.net-bs4/dataTables.bootstrap4.css')}}">
         <link rel="shortcut icon" href="{{asset('assets/images/favicon.png')}}" />
-        <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        
+        <link href="{{asset('assets/css/style.css')}}" rel="stylesheet" type="text/css" />
+
+        {{-- mde --}}
+        <link rel="stylesheet" href="{{asset('assets/vendors/simplemde/simplemde.min.css')}}">
 
         <script type="text/javascript">
              var url = $('meta[name="url"]').attr('content');
@@ -81,11 +88,15 @@
         <script src="{{asset('assets/vendors/datatables.net/jquery.dataTables.js')}}"></script>
         <script src="{{asset('assets/vendors/datatables.net-bs4/dataTables.bootstrap4.js')}}"></script>
         <script src="{{asset('assets/js/data-table.js')}}"></script>
-
+        
         {{-- tiny mce --}}
         <script src="{{asset('assets/vendors/tinymce/tinymce.min.js')}}"></script>
         <script src="{{asset('assets/js/tinymce.js')}}"></script>
+
         @stack('script')
+
+        {{-- mde --}}
+        <script src="{{asset('assets/vendors/simplemde/simplemde.min.js')}}"></script>
     
     </body>
 </html>    

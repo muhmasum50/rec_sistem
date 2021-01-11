@@ -3,6 +3,8 @@
 namespace App\Helpers;
 
 use Illuminate\Support\Facades\DB;
+use App\User;
+use App\Product;
 
 class Yin {
 
@@ -93,5 +95,17 @@ class Yin {
         ];
 
         return $messages;
+    }
+
+    public static function JumlahUsers() {
+        $user = User::where('role', 'user')->get();
+
+        return count($user->toArray());
+    }
+
+    public static function JumlahProducts() {
+        $product = Product::all();
+
+        return count($product->toArray());
     }
 }

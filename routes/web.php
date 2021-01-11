@@ -34,5 +34,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('/produk/add', 'ProductController@store');
         Route::get('/load_produk', 'ProductController@load_product')->name('load_produk');
         Route::delete('/produk','ProductController@destroy');
+        Route::post('/produk/edit', 'ProductController@edit');
+        Route::put('/produk/edit', 'ProductController@update');
     });
 });

@@ -179,6 +179,7 @@ return [
         Jenssegers\Agent\AgentServiceProvider::class,
         // helpers
         App\Providers\YinServiceProvider::class,
+        App\Providers\TanggalServiceProvider::class,
 
     ],
 
@@ -236,6 +237,7 @@ return [
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
         'Agent' => Jenssegers\Agent\Facades\Agent::class,
         'Yin' => App\Helpers\Yin::class,
+        'Tanggal' => App\Helpers\Tanggal::class,
 
     ],
 

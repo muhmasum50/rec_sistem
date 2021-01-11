@@ -36,16 +36,16 @@
 
                     </div>     
                 <div class="table-responsive pt-3">
-                    <table class="table table-bordered" id="serverside">
+                    <table class="table table-bordered table-hover" id="serverside">
                         <thead>
                             <tr>
-                                <th>#</th>
-                                <th>Gambar</th>
+                                <th width="15px;">#</th>
+                                <th width="35px;">Gambar</th>
                                 <th>Nama Produk</th>
                                 <th>Harga</th>
-                                <th>Deskripsi</th>
                                 <th>Dibuat</th>
-                                <th width="50px;">Aksi</th>
+                                <th>Created at</th>
+                                <th width="40px;">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -147,11 +147,11 @@
             ajax: url + '/load_produk',
             columns: [
                 {data: 'DT_RowIndex'},
-                {data: 'fotoproduct'},
+                {data: 'fotoproduct', orderable: false, searchable: false},
                 {data: 'product_name'},
                 {data: 'harga'},
-                {data: 'product_desc'},
                 {data: 't_userupdate'},
+                {data: 'tanggal'},
                 {data: 'aksi', orderable: false, searchable: false}
             ],
             language: {

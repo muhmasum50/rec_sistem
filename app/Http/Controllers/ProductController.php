@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Product;
 use Validator;
 use App\Helpers\Yin;
+use App\Helpers\Tanggal;
 use Jenssegers\Agent\Agent;
 use Exception;
 use DataTables;
@@ -18,7 +19,7 @@ class ProductController extends Controller
 {
     public function load_product(Request $request) {
         if($request->ajax()) {
-            $product = Product::select('product_name','id','price','product_desc','product_pic', 't_userupdate')
+            $product = Product::select('product_name','id','price','created_at','product_pic', 't_userupdate')
                 ->orderBy('id', 'DESC')->get();
 
             return DataTables::of($product)
@@ -45,6 +46,10 @@ class ProductController extends Controller
                         '<img src="https://ui-avatars.com/api/?name='.$product->product_pic.'&color=727cf5&background=EBF4FF" alt="">' ;
             
                 return $pic;
+            })
+            ->addColumn('tanggal', function($product){
+                $tgl = Tanggal::tanggal_indo($product->created_at);
+                return $tgl;
             })
             ->addIndexColumn()
             ->rawColumns(['aksi','fotoproduct'])

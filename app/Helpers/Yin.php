@@ -111,8 +111,7 @@ class Yin {
 
     public static function ProdukRated() {
         $rated = DB::table('ratings')
-        ->select('id_product')
-        ->distinct()
+        ->distinct('id_product')
         ->count();
 
         return $rated;
@@ -120,8 +119,8 @@ class Yin {
 
     public static function UserRating() {
         $usr = DB::table('ratings')
-        ->select('id_user')
-        ->distinct()
+        // ->select('id_user')
+        ->distinct('id_user')
         ->count();
 
         return $usr;

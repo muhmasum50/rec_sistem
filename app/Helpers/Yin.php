@@ -108,4 +108,11 @@ class Yin {
 
         return count($product->toArray());
     }
+    public static function debug($var, $die=FALSE)
+    {
+        echo '<pre>';
+        print_r($var);
+        echo '</pre>';
+        if ($die) die;
+    }
 }

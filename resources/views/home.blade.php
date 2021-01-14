@@ -15,7 +15,44 @@
 @endsection
 
 @section('content')
-<div class="row aos-init aos-animate" data-aos="fade-up" data-aos-duration="1500">
+
+	<div class="profile-page tx-13">
+		<div class="row">
+			<div class="col-12 grid-margin">
+				<div class="profile-header">
+					<div class="cover">
+						<div class="gray-shade"></div>
+						<figure>
+							{{-- <img src="{{asset('uploads/img/banner.jpg')}}" width="1148px" height="272px"class="img-fluid" alt="profile cover"> --}}
+							<div style="width=1148px; height:272px; background-image: linear-gradient(15deg,#1877c0 0%,#71d5f3 100%)!important;	color: #fff;">
+								<div class="d-flex justify-content-center align-self-center">
+									<p data-aos="fade-left" data-aos-duration="1500" style="padding-top:100px; font-size:50px">
+										Selamat Datang .....</p>
+								</div>
+							</div>
+						</figure>
+						<div class="cover-body d-flex justify-content-between align-items-center">
+							<div>
+								<img class="profile-pic" src="{{Auth::user()->avatar}}" alt="profile">
+								<span class="profile-name">{{Auth::user()->name}}</span>
+							</div>
+						</div>
+					</div>
+					<div class="header-links">
+						<ul class="links d-flex align-items-center mt-3 mt-md-0">
+							<li class="header-link-item d-flex align-items-center active">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-columns mr-1 icon-md"><path d="M12 3h7a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-7m0-18H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7m0-18v18"></path></svg>
+								<a class="pt-1px d-none d-md-block" href="#">Timeline</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>	
+		</div>
+	</div>
+
+
+<div class="row aos-init aos-animate" data-aos="fade-down" data-aos-duration="1500">
 	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 	
 	<div class="small-box bg-aqua">
@@ -64,6 +101,7 @@
 
 @push('script')
 	<script>
+		AOS.init();
 		@php
 			if(Session::has('login')) {
 		@endphp

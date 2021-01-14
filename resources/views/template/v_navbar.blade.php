@@ -25,42 +25,6 @@
                             <p class="sub-text text-muted">2 sec ago</p>
                         </div>
                     </a>
-                    <a href="javascript:;" class="dropdown-item">
-                        <div class="icon">
-                            <i data-feather="gift"></i>
-                        </div>
-                        <div class="content">
-                            <p>New Order Recieved</p>
-                            <p class="sub-text text-muted">30 min ago</p>
-                        </div>
-                    </a>
-                    <a href="javascript:;" class="dropdown-item">
-                        <div class="icon">
-                            <i data-feather="alert-circle"></i>
-                        </div>
-                        <div class="content">
-                            <p>Server Limit Reached!</p>
-                            <p class="sub-text text-muted">1 hrs ago</p>
-                        </div>
-                    </a>
-                    <a href="javascript:;" class="dropdown-item">
-                        <div class="icon">
-                            <i data-feather="layers"></i>
-                        </div>
-                        <div class="content">
-                            <p>Apps are ready for update</p>
-                            <p class="sub-text text-muted">5 hrs ago</p>
-                        </div>
-                    </a>
-                    <a href="javascript:;" class="dropdown-item">
-                        <div class="icon">
-                            <i data-feather="download"></i>
-                        </div>
-                        <div class="content">
-                            <p>Download completed</p>
-                            <p class="sub-text text-muted">6 hrs ago</p>
-                        </div>
-                    </a>
                 </div>
                 <div class="dropdown-footer d-flex align-items-center justify-content-center">
                     <a href="javascript:;">View all</a>

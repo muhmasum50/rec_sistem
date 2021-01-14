@@ -17,10 +17,19 @@ Route::post('daftar', 'AuthController@prosesdaftar');
 Route::group(['middleware' => 'auth'], function () {
 
     // middleware custom
+    // middleaware user
+    // Route::group(['middleware' =>['CekRole:user']], function(){
+    //     Route::get('/rate', 'RateController@index');
+    // });
+
+
     // middleware admin, user
     Route::group(['middleware' => ['CekRole:admin,user']], function () {
         Route::get('/home', 'HomeController@index');
         Route::get('logout', 'AuthController@logout');
+
+        Route::get('/rate', 'RateController@index');
+        Route::post('/gorating', 'RateController@gorating')->name('gorating');
     });
 
     // midleware admin

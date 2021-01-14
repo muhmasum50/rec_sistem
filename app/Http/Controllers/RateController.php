@@ -17,10 +17,12 @@ class RateController extends Controller
         $products = DB::table('products')->select('*')->get()->toArray();
         $ratings =  DB::table('ratings')->select('*')->get()->toArray();
 
+        $produk = [];
         foreach($products as $v) {
             $produk[] = (array)$v;
         }
 
+        $rating = [];
         foreach($ratings as $v) {
             $rating[] = (array)$v;
         }
@@ -32,8 +34,11 @@ class RateController extends Controller
         }
 
         foreach($produk as $k => $p) {
-            $produk[$k]['rating'] = $a_rating[$p['id']];
+
+            $produk[$k]['rating'] = isset($a_rating[$p['id']]) ? $a_rating[$p['id']] : null;
         }
+
+        // Yin::debug($rating);
 
         return view('user.list_rateproduk', compact('produk'));
     }

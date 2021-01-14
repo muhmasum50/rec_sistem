@@ -79,7 +79,12 @@
                                 <h4 class="card-title" style="font-size:15px;">{{$p['product_name']}}</h4>
                                 <p>{{'Rp. '.number_format($p['price'], 2)}}</p>
                                 @php
-                                  $rating = $p['rating'][Auth::user()->id]['rating'];
+                                  if(isset($p['rating'][Auth::user()->id]['rating'])) {
+                                    $rating = $p['rating'][Auth::user()->id]['rating'];
+                                  }
+                                  else {
+                                    $rating = 0;
+                                  }
                                 @endphp
                                 <fieldset class="rating">
                                   <input name="rating{{$p['id']}}"

@@ -20,14 +20,13 @@
                     <span class="menu-title">Pengguna</span>
                 </a>
             </li>
-        @elseif(Auth::user()->role == 'admin' || Auth::user()->role == 'user')
+        @endif
         <li class="nav-item">
             <a class="nav-link" href="{{url('rate')}}">
                 <i class="link-icon" data-feather="star"></i>
                 <span class="menu-title">Rate Produk</span>
             </a>
         </li>
-        @endif
         {{-- <li class="nav-item">
             <a href="#" class="nav-link">
                 <i class="link-icon" data-feather="mail"></i>

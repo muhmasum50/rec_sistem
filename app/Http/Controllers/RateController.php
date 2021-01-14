@@ -14,7 +14,7 @@ class RateController extends Controller
     public function index() {
 
         // $produk = Product::select('*')->get();
-        $products = DB::table('products')->select('*')->get()->toArray();
+        $products = DB::table('products')->select('*')->orderBy('id', 'desc')->get()->toArray();
         $ratings =  DB::table('ratings')->select('*')->get()->toArray();
 
         $produk = [];

@@ -108,6 +108,25 @@ class Yin {
 
         return count($product->toArray());
     }
+
+    public static function ProdukRated() {
+        $rated = DB::table('ratings')
+        ->select('id_product')
+        ->distinct()
+        ->count();
+
+        return $rated;
+    }
+
+    public static function UserRating() {
+        $usr = DB::table('ratings')
+        ->select('id_user')
+        ->distinct()
+        ->count();
+
+        return $usr;
+    }
+
     public static function debug($var, $die=FALSE)
     {
         echo '<pre>';

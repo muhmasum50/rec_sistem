@@ -24,10 +24,10 @@
 						<div class="gray-shade"></div>
 						<figure>
 							{{-- <img src="{{asset('uploads/img/banner.jpg')}}" width="1148px" height="272px"class="img-fluid" alt="profile cover"> --}}
-							<div style="width=1148px; height:272px; background-image: linear-gradient(15deg,#1877c0 0%,#71d5f3 100%)!important;	color: #fff;">
+							<div style="width=1148px; height:272px; background: #34495E; color: #fff;">
 								<div class="d-flex justify-content-center align-self-center">
 									<p data-aos="fade-left" data-aos-duration="1500" style="padding-top:100px; font-size:50px">
-										Selamat Datang .....</p>
+										<b>Selamat Datang .....</b></p>
 								</div>
 							</div>
 						</figure>
@@ -51,52 +51,53 @@
 		</div>
 	</div>
 
-
-<div class="row aos-init aos-animate" data-aos="fade-down" data-aos-duration="1500">
-	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-	
-	<div class="small-box bg-aqua">
-	<div class="inner">
-	<h3>{{Yin::JumlahUsers()}}</h3>
-	<p>Jumlah<br>Pengguna</p>
-	</div>
-	<div class="icon"><i class="ion ion-person"></i></div>
-	</div>
-	</div>
-	
-	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-	
-	<div class="small-box bg-green">
-	<div class="inner">
-	<h3>{{Yin::JumlahProducts()}} </h3>
-	<p>Jumlah Produk<br> Pada saat ini</p>
-	</div>
-	<div class="icon"><i class="ion ion-document-text"></i></div>
-	</div>
-	</div>
-	
-	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-	
-	<div class="small-box bg-yellow">
-	<div class="inner">
-	<h3>0</h3>
-	<p>Produk <br>Yang sudah dirating</p>
-	</div>
-	<div class="icon"><i class="ion ion-ribbon-b"></i></div>
-	</div>
-	</div>
-	
-	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-	
-	<div class="small-box bg-red">
-	<div class="inner">
-	<h3>10 </h3>
-	<p>Pengguna<br>Yang sudah merating produk</p>
-	</div>
-	<div class="icon"><i class="ion ion-ribbon-a"></i></div>
-	</div>
-	</div>
-	</div>
+	{{-- @if (Auth::user()->role == 'admin') --}}
+		<div class="row aos-init aos-animate" data-aos="fade-down" data-aos-duration="1500">
+			<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+			
+			<div class="small-box bg-aqua">
+			<div class="inner">
+			<h3>{{Yin::JumlahUsers()}}</h3>
+			<p>Jumlah<br>Pengguna</p>
+			</div>
+			<div class="icon"><i class="ion ion-person"></i></div>
+			</div>
+			</div>
+			
+			<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+			
+			<div class="small-box bg-green">
+			<div class="inner">
+			<h3>{{Yin::JumlahProducts()}} </h3>
+			<p>Jumlah Produk<br> Pada saat ini</p>
+			</div>
+			<div class="icon"><i class="ion ion-document-text"></i></div>
+			</div>
+			</div>
+			
+			<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+			
+			<div class="small-box bg-yellow">
+			<div class="inner">
+			<h3>{{Yin::ProdukRated()}}</h3>
+			<p>Produk <br>Yang sudah dirating</p>
+			</div>
+			<div class="icon"><i class="ion ion-ribbon-b"></i></div>
+			</div>
+			</div>
+			
+			<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+			
+			<div class="small-box bg-red">
+			<div class="inner">
+			<h3>{{Yin::UserRating()}} </h3>
+			<p>Pengguna<br>Yang sudah merating produk</p>
+			</div>
+			<div class="icon"><i class="ion ion-ribbon-a"></i></div>
+			</div>
+			</div>
+		</div>
+	{{-- @endif --}}
 @endsection
 
 @push('script')

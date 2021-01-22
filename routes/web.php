@@ -30,6 +30,9 @@ Route::group(['middleware' => 'auth'], function () {
 
         Route::get('/rate', 'RateController@index');
         Route::post('/gorating', 'RateController@gorating')->name('gorating');
+
+        // rec product
+        Route::get('/rekomendasiproduk', 'CalculateController@list_rekomendasi');
     });
 
     // midleware admin
@@ -49,6 +52,5 @@ Route::group(['middleware' => 'auth'], function () {
         /** Calculate Logic */
 
         // Route::get('/calculate', 'CalculateController@index');
-        Route::get('/rekomendasiproduk', 'CalculateController@list_rekomendasi');
     });
 });

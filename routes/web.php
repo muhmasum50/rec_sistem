@@ -45,5 +45,10 @@ Route::group(['middleware' => 'auth'], function () {
         Route::delete('/produk','ProductController@destroy');
         Route::post('/produk/edit', 'ProductController@edit');
         Route::put('/produk/edit', 'ProductController@update');
+
+        /** Calculate Logic */
+
+        Route::get('/calculate', 'CalculateController@index');
+        Route::get('/rekomendasiproduk', 'CalculateController@list_rekomendasi');
     });
 });

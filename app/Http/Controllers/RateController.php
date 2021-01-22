@@ -34,12 +34,9 @@ class RateController extends Controller
         }
 
         foreach($produk as $k => $p) {
-
             $produk[$k]['rating'] = isset($a_rating[$p['id']]) ? $a_rating[$p['id']] : null;
         }
-
         // Yin::debug($rating);
-
         return view('user.list_rateproduk', compact('produk'));
     }
 
@@ -49,8 +46,6 @@ class RateController extends Controller
 
             date_default_timezone_set("Asia/Bangkok");
             $date = date('Y-m-d H:i:s');
-
-
 
             $isUserRating = Rating::where([
                         ['id_user', '=', $request->iduser],

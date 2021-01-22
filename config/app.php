@@ -180,6 +180,7 @@ return [
         // helpers
         App\Providers\YinServiceProvider::class,
         App\Providers\TanggalServiceProvider::class,
+        App\Providers\RecommendServiceProvider::class,
 
     ],
 
@@ -238,6 +239,7 @@ return [
         'Agent' => Jenssegers\Agent\Facades\Agent::class,
         'Yin' => App\Helpers\Yin::class,
         'Tanggal' => App\Helpers\Tanggal::class,
+        'Recommend' => App\Helpers\Recommend::class
 
     ],
 

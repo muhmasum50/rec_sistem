@@ -12,8 +12,8 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="notificationDropdown">
                 <div class="dropdown-header d-flex align-items-center justify-content-between">
-                    <p class="mb-0 font-weight-medium">6 New Notifications</p>
-                    <a href="javascript:;" class="text-muted">Clear all</a>
+                    <p class="mb-0 font-weight-medium">1 New Notifications</p>
+                    <a href="javascript:;" class="text-muted"></a>
                 </div>
                 <div class="dropdown-body">
                     <a href="javascript:;" class="dropdown-item">
@@ -21,8 +21,9 @@
                             <i data-feather="user-plus"></i>
                         </div>
                         <div class="content">
-                            <p>New customer registered</p>
-                            <p class="sub-text text-muted">2 sec ago</p>
+                            <p>Created by Trio Kadal
+                            </p>
+                            <p class="sub-text text-muted">Made with Love</p>
                         </div>
                     </a>
                 </div>

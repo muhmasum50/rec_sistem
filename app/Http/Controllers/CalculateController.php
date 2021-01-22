@@ -29,9 +29,10 @@ class CalculateController extends Controller
             $rating[$rate->id_user][$product[$rate->id_product]] = $rate->rating;
         }
 
-        $rec = Recommend::getRecommendations($rating, Auth::user()->id);
+        // $rec = Recommend::getRecommendations($rating, Auth::user()->id);
+        $rec = Recommend::matchItems($rating, Auth::user()->id);
 
-        Yin::debug($rec);
+        // Yin::debug($rec);
     }
 
     public function list_rekomendasi() {
@@ -53,15 +54,15 @@ class CalculateController extends Controller
         foreach($products as $k => $v) {
             $produk[$v->product_name] = $v;
         }
-
+        
         // add logic jika user belum merating
         if(!isset($rating[Auth::user()->id])){
             $recommend = null;
         } else {
             $rate = $rating;
-
             $recommend = Recommend::getRecommendations($rate, Auth::user()->id);
         }
+        return view('content.list_rekomendasi', compact('recommend', 'produk'));
 
 
         
@@ -73,7 +74,6 @@ class CalculateController extends Controller
         // Yin::debug($product[6]); die;
         // Yin::debug($recommend); die;
 
-        return view('content.list_rekomendasi', compact('recommend', 'produk'));
     }
 
 }

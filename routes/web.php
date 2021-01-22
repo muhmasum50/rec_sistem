@@ -48,7 +48,7 @@ Route::group(['middleware' => 'auth'], function () {
 
         /** Calculate Logic */
 
-        Route::get('/calculate', 'CalculateController@index');
+        // Route::get('/calculate', 'CalculateController@index');
         Route::get('/rekomendasiproduk', 'CalculateController@list_rekomendasi');
     });
 });

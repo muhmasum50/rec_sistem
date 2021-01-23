@@ -17,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('webservices/product', 'ApiController@index');
+Route::get('webservices/product/{id}', 'ApiController@detail');
+Route::post('webservices/product', 'ApiController@limit');

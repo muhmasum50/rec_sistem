@@ -20,6 +20,15 @@ class ApiController extends Controller
 
     public function index() {
         $product =  Product::all();
+
+        // add dir picture 
+        foreach($product as $k => $v) {
+            $picture[$v->id] = url('/uploads/products/').$v->product_pic;
+        }
+        foreach($product as $k => $p) {
+            $product[$k]['picture'] = $picture[$p->id];
+        }
+
         $arr = [
             'response' => true,
             'total' => count($product),
@@ -30,6 +39,14 @@ class ApiController extends Controller
 
     public function detail($id) {
         $product = Product::where('id', $id)->take(10)->get();
+
+        foreach($product as $k => $v) {
+            $picture[$v->id] = url('/uploads/products/').$v->product_pic;
+        }
+        foreach($product as $k => $p) {
+            $product[$k]['picture'] = $picture[$p->id];
+        }
+
         $arr = [
             'response' => true,
             'data' => $product
@@ -68,6 +85,12 @@ class ApiController extends Controller
 
             // if true
             $product = Product::take($request->limit)->get();
+            foreach($product as $k => $v) {
+                $picture[$v->id] = url('/uploads/products/').$v->product_pic;
+            }
+            foreach($product as $k => $p) {
+                $product[$k]['picture'] = $picture[$p->id];
+            }
             $arr = [
                 'response' => true,
                 'total' => count($product),

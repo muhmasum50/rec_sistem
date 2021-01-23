@@ -23,7 +23,7 @@ class ApiController extends Controller
 
         // add dir picture 
         foreach($product as $k => $v) {
-            $picture[$v->id] = url('/uploads/products/').$v->product_pic;
+            $picture[$v->id] = url('/uploads/products').'/'.$v->product_pic;
         }
         foreach($product as $k => $p) {
             $product[$k]['picture'] = $picture[$p->id];
@@ -41,7 +41,7 @@ class ApiController extends Controller
         $product = Product::where('id', $id)->take(10)->get();
 
         foreach($product as $k => $v) {
-            $picture[$v->id] = url('/uploads/products/').$v->product_pic;
+            $picture[$v->id] = url('/uploads/products').'/'.$v->product_pic;
         }
         foreach($product as $k => $p) {
             $product[$k]['picture'] = $picture[$p->id];
@@ -86,7 +86,7 @@ class ApiController extends Controller
             // if true
             $product = Product::take($request->limit)->get();
             foreach($product as $k => $v) {
-                $picture[$v->id] = url('/uploads/products/').$v->product_pic;
+                $picture[$v->id] = url('/uploads/products').'/'.$v->product_pic;
             }
             foreach($product as $k => $p) {
                 $product[$k]['picture'] = $picture[$p->id];

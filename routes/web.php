@@ -52,6 +52,9 @@ Route::group(['middleware' => 'auth'], function () {
         /** Calculate Logic */
 
         Route::get('/calculate', 'CalculateController@index');
-        Route::get('/perhitungan', 'CalculateController@hitung_similarity');
+        Route::get('/perhitungan', 'CalculateController@list_perhitungan');
+        Route::post('/hitungsimilarity', 'CalculateController@hitungsimilarity')->name('hitungsimilarity');
+        
+        Route::post('/skorrekomendasi', 'CalculateController@skorrekomendasi')->name('skorrekomendasi');
     });
 });

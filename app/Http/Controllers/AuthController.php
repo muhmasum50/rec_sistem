@@ -152,7 +152,12 @@ class AuthController extends Controller
     } 
 
     public function daftar() {
-        return view('auth.v_register');
+
+        if (Auth::check()) { 
+            return redirect('home');
+        }
+        // return view('auth.v_register');
+        return view('customerr');
     }
 
     public function prosesdaftar(Request $request) {

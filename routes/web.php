@@ -12,7 +12,7 @@ Route::get('google', 'AuthController@googleLinkLogin');
 Route::get('google/login', 'AuthController@GoogleLogin');
 
 Route::get('daftar', 'AuthController@daftar');
-Route::post('daftar', 'AuthController@prosesdaftar');
+// Route::post('daftar', 'AuthController@prosesdaftar');
     
 Route::group(['middleware' => 'auth'], function () {
 
@@ -32,7 +32,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('/gorating', 'RateController@gorating')->name('gorating');
 
         // rec product
-        Route::get('/rekomendasiproduk', 'CalculateController@list_rekomendasi');
+        Route::get('/rekomendasi', 'CalculateController@list_rekomendasi');
     });
 
     // midleware admin
@@ -51,6 +51,7 @@ Route::group(['middleware' => 'auth'], function () {
 
         /** Calculate Logic */
 
-        // Route::get('/calculate', 'CalculateController@index');
+        Route::get('/calculate', 'CalculateController@index');
+        Route::get('/perhitungan', 'CalculateController@hitung_similarity');
     });
 });

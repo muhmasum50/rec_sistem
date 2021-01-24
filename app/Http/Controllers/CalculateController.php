@@ -27,12 +27,15 @@ class CalculateController extends Controller
         $rating = [];
         foreach((array)$ratings as $k => $rate) {
             $rating[$rate->id_user][$product[$rate->id_product]] = $rate->rating;
+            
+            // $rating[$rate->id_user][$rate->id_product] = $rate->rating;
         }
 
-        // $rec = Recommend::getRecommendations($rating, Auth::user()->id);
+        $rec = Recommend::similarityDistance($rating, Auth::user()->id, 12);
         $rec = Recommend::matchItems($rating, Auth::user()->id);
+        $rec = Recommend::transformPreferences($rating);
 
-        // Yin::debug($rec);
+        Yin::debug($rec);
     }
 
     public function list_rekomendasi() {
@@ -64,16 +67,10 @@ class CalculateController extends Controller
         }
         return view('content.list_rekomendasi', compact('recommend', 'produk'));
 
-
-        
-        // $result = [];
-        // foreach($recommend as $k => $v) {
-        //     $result[$k] = $produk[$k];
-        // }
-        
-        // Yin::debug($product[6]); die;
-        // Yin::debug($recommend); die;
-
     }
+
+    // public function hitung_similarity(Request $request) {
+
+    // }
 
 }

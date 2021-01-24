@@ -20,6 +20,12 @@
                     <span class="menu-title">Pengguna</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{url('perhitungan')}}">
+                    <i class="link-icon" data-feather="layers"></i>
+                    <span class="menu-title">Perhitungan</span>
+                </a>
+            </li>
         @endif
         <li class="nav-item">
             <a class="nav-link" href="{{url('rate')}}">
@@ -28,7 +34,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{url('rekomendasiproduk')}}">
+            <a class="nav-link" href="{{url('rekomendasi')}}">
                 <i class="link-icon" data-feather="star"></i>
                 <span class="menu-title">Rekomendasi Produk</span>
             </a>

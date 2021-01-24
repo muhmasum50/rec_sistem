@@ -24,7 +24,7 @@ class Recommend {
                 $sum = $sum + pow($value - $preferences[$person2][$key], 2);
         }
         
-        return  1/(1 + sqrt($sum));     
+        return  1/(1 + sqrt($sum));
     }
     
     

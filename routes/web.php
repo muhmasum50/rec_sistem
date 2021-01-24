@@ -51,7 +51,7 @@ Route::group(['middleware' => 'auth'], function () {
 
         /** Calculate Logic */
 
-        Route::get('/calculate', 'CalculateController@index');
+        // Route::get('/calculate', 'CalculateController@index');
         Route::get('/perhitungan', 'CalculateController@list_perhitungan');
         Route::post('/hitungsimilarity', 'CalculateController@hitungsimilarity')->name('hitungsimilarity');
         

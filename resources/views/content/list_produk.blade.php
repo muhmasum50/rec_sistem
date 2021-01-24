@@ -42,9 +42,9 @@
                                 <th width="15px;">#</th>
                                 <th width="35px;">Gambar</th>
                                 <th>Nama Produk</th>
-                                <th>Harga</th>
-                                <th>Dibuat</th>
-                                <th>Created at</th>
+                                <th width="80px;">Harga</th>
+                                <th width="80px;">Dibuat</th>
+                                <th width="80px;">Created at</th>
                                 <th width="40px;">Aksi</th>
                             </tr>
                         </thead>

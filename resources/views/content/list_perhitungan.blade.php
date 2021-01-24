@@ -30,7 +30,7 @@
                     </div>
                     <button class="btn btn-primary" type="submit" id="hitungskor_rekomendasi">Hitung</button>
                     <hr>
-                    <table class="table table-bordered" id="table_ku">
+                    <table class="table table-bordered table-responsive" id="table_ku">
                            
                            
                     </table>

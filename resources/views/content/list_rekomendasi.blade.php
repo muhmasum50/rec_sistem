@@ -27,7 +27,8 @@
                             <div class="card-body">
                                 <h4 class="card-title" style="font-size:15px;">{{$produk[$k]->product_name}}</h4>
                                 <p>{{number_format($produk[$k]->price)}}</p>
-                               
+                                <hr>
+                                <strong style="font-size:12px;">{{count($usersama[$k]). ' User yang sama merating Produk ini' }}</strong>
                             </div>
                         </div>
                     </div>

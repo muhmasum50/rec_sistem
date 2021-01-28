@@ -13,9 +13,9 @@ Route::get('google/login', 'AuthController@GoogleLogin');
 
 Route::get('daftar', 'AuthController@daftar');
 // Route::post('daftar', 'AuthController@prosesdaftar');
-    
-Route::group(['middleware' => 'auth'], function () {
 
+Route::group(['middleware' => 'auth'], function () {
+    
     // middleware custom
     // middleaware user
     // Route::group(['middleware' =>['CekRole:user']], function(){

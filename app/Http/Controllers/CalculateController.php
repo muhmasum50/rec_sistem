@@ -86,7 +86,9 @@ class CalculateController extends Controller
             $rate = $rating;
             $recommend = Recommend::getRecommendations($rate, Auth::user()->id);
         }
-        return view('content.list_rekomendasi', compact('recommend', 'produk'));
+
+        $usersama = Recommend::transformPreferences($rating);
+        return view('content.list_rekomendasi', compact('recommend', 'produk', 'usersama'));
 
     }
 

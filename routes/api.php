@@ -21,3 +21,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('webservices/product', 'ApiController@index');
 Route::get('webservices/product/{id}', 'ApiController@detail');
 Route::post('webservices/product', 'ApiController@limit');
+
+Route::get('webservices/data/dika', 'ApiController@data_skripsi');

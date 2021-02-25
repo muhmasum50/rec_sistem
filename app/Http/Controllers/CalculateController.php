@@ -14,30 +14,37 @@ use App\user;
 
 class CalculateController extends Controller
 {
-    public function index() {
-
+    public function list_rekomendasi() {
 
         $products = DB::table('products')->select('*')->get()->toArray();
         $ratings =  DB::table('ratings')->select('*')->get()->toArray();
-
+    
         $product = [];
         foreach($products as $k => $v) {
             $product[$v->id] = $v->product_name;
         }
-
+    
         $rating = [];
         foreach((array)$ratings as $k => $rate) {
             $rating[$rate->id_user][$product[$rate->id_product]] = $rate->rating;
-            
-            // $rating[$rate->id_user][$rate->id_product] = $rate->rating;
         }
-
-        $rec = number_format(100 * Recommend::similarityDistance($rating,12, 10),2);
-        // $rec = Recommend::matchItems($rating, Auth::user()->id);
-        // $rec = Recommend::transformPreferences($rating);
-        $rec =  Recommend::getRecommendations($rating, 11);
-
-        Yin::debug($rec);
+        // get produk
+        $produk = [];
+        foreach($products as $k => $v) {
+            $produk[$v->product_name] = $v;
+        }
+        
+        // add logic jika user belum merating
+        if(!isset($rating[Auth::user()->id])){
+            $recommend = null;
+        } else {
+            $rate = $rating;
+            $recommend = Recommend::getRecommendations($rate, Auth::user()->id);
+        }
+    
+        $usersama = Recommend::transformPreferences($rating);
+        return view('content.list_rekomendasi', compact('recommend', 'produk', 'usersama'));
+    
     }
 
     public function MappingRatingAndProduct(){
@@ -52,45 +59,11 @@ class CalculateController extends Controller
         $rating = [];
         foreach((array)$ratings as $k => $rate) {
             $rating[$rate->id_user][$product[$rate->id_product]] = $rate->rating;
-            
-            // $rating[$rate->id_user][$rate->id_product] = $rate->rating;
         }
 
         return $rating;
     }
 
-    public function list_rekomendasi() {
-        $products = DB::table('products')->select('*')->get()->toArray();
-        $ratings =  DB::table('ratings')->select('*')->get()->toArray();
-
-        $product = [];
-        foreach($products as $k => $v) {
-            $product[$v->id] = $v->product_name;
-        }
-
-        $rating = [];
-        foreach((array)$ratings as $k => $rate) {
-            $rating[$rate->id_user][$product[$rate->id_product]] = $rate->rating;
-        }
-
-        // get produk
-        $produk = [];
-        foreach($products as $k => $v) {
-            $produk[$v->product_name] = $v;
-        }
-        
-        // add logic jika user belum merating
-        if(!isset($rating[Auth::user()->id])){
-            $recommend = null;
-        } else {
-            $rate = $rating;
-            $recommend = Recommend::getRecommendations($rate, Auth::user()->id);
-        }
-
-        $usersama = Recommend::transformPreferences($rating);
-        return view('content.list_rekomendasi', compact('recommend', 'produk', 'usersama'));
-
-    }
 
     public function list_perhitungan() {
 

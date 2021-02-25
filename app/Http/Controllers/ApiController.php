@@ -101,4 +101,9 @@ class ApiController extends Controller
         }
         
     }
+
+    public function data_skripsi(){
+        $data = DB::table('data')->get();
+        return response()->json($data, 200);
+    }
 }

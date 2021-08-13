@@ -14,6 +14,8 @@ Route::get('google/login', 'AuthController@GoogleLogin');
 Route::get('daftar', 'AuthController@daftar');
 // Route::post('daftar', 'AuthController@prosesdaftar');
 
+Route::get('data/dika', 'ApiController@data_skripsi');
+
 Route::group(['middleware' => 'auth'], function () {
     
     // middleware custom

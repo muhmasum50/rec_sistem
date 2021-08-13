@@ -103,7 +103,16 @@ class ApiController extends Controller
     }
 
     public function data_skripsi(){
-        $data = DB::table('data')->get();
-        return response()->json($data, 200);
+        $data = DB::table('data')->get()->toArray();
+
+        $rn = array_map('intval', explode(',', $data));
+
+        // $ar = [];
+        // foreach($data as $k => $v){
+        //     $ar[$k] = $v;
+        // }
+
+        Yin::debug($rn);
+        // return response()->json($data, 200);
     }
 }
